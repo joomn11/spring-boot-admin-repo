@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: ttt-aa
+  name: fashion-pod
+  labels:
+    type: spring-boot
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: fashion
+    spec:
+      containers:
+        - image: {info}:5000/sba-client:v5
+          name: fashion
+          env:
+            - name: management.endpoints.web.exposure.include
+              value: "*"
+            - name: management.endpoint.health.show-details
+              value: "always"
+          ports:
+            - containerPort: 8082
+          resources: {}
+          readinessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 8082
+            initialDelaySeconds: 10
+            timeoutSeconds: 2
+            periodSeconds: 5
+            failureThreshold: 5
+          livenessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 8082
+            initialDelaySeconds: 20
+            timeoutSeconds: 2
+            periodSeconds: 8
+            failureThreshold: 5
+      restartPolicy: Always
+  selector:
+    matchLabels:
+      app: fashion
