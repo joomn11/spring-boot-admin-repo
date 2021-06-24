@@ -9,3 +9,6 @@ management:
   endpoint:
     health:
       show-details: always
+spring:
+  jmx:
+    enabled: true
