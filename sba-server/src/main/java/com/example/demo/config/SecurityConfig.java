@@ -17,23 +17,24 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        SavedRequestAwareAuthenticationSuccessHandler successHandler = new SavedRequestAwareAuthenticationSuccessHandler();
-        successHandler.setTargetUrlParameter("redirectTo");
-        successHandler.setDefaultTargetUrl(this.adminServer.path("/"));
-
-        http.authorizeRequests()
-            .antMatchers(this.adminServer.path("/assets/**")).permitAll() // <1>
-            .antMatchers(this.adminServer.path("/login")).permitAll()
-            .anyRequest().authenticated() // <2>
-            .and()
-        .formLogin().loginPage(this.adminServer.path("/login")).successHandler(successHandler).and() // <3>
-        .logout().logoutUrl(this.adminServer.path("/logout")).and()
-        .httpBasic().and() // <4>
-        .csrf()
-            .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()) // <5>
-            .ignoringAntMatchers(
-                this.adminServer.path("/instances"), // <6>
-                this.adminServer.path("/actuator/**") // <7>
-            );
+//        SavedRequestAwareAuthenticationSuccessHandler successHandler = new SavedRequestAwareAuthenticationSuccessHandler();
+//        successHandler.setTargetUrlParameter("redirectTo");
+//        successHandler.setDefaultTargetUrl(this.adminServer.path("/"));
+//
+//        http.authorizeRequests()
+//            .antMatchers(this.adminServer.path("/assets/**")).permitAll() // <1>
+//            .antMatchers(this.adminServer.path("/login")).permitAll()
+//            .anyRequest().authenticated() // <2>
+//            .and()
+//        .formLogin().loginPage(this.adminServer.path("/login")).successHandler(successHandler).and() // <3>
+//        .logout().logoutUrl(this.adminServer.path("/logout")).and()
+//        .httpBasic().and() // <4>
+//        .csrf()
+//            .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()) // <5>
+//            .ignoringAntMatchers(
+//                this.adminServer.path("/instances"), // <6>
+//                this.adminServer.path("/actuator/**") // <7>
+//            );
+    	http.csrf().disable().headers().frameOptions().disable().and().authorizeRequests().anyRequest().permitAll();
     }
 }

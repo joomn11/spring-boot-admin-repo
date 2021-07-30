@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.config.server.EnableConfigServer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
 
@@ -13,7 +14,7 @@ import de.codecentric.boot.admin.server.web.client.InstanceExchangeFilterFunctio
 
 @SpringBootApplication
 @EnableAdminServer
-@EnableAutoConfiguration
+@EnableConfigServer
 public class SbaServerApplication {
 
 	private static final Logger log = LoggerFactory.getLogger(SbaServerApplication.class);

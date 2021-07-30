@@ -1,0 +1,16 @@
+server:
+  port: 8089
+spring:
+  profiles:
+    active: dev
+  application:
+    name: apptest
+  cloud:
+    config:
+      enabled: true
+      uri: http://localhost:8000
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh      
