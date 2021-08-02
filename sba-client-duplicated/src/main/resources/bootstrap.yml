@@ -1,0 +1,16 @@
+server:
+  port: 8088
+spring:
+  profiles:
+    active: test,dev
+  application:
+    name: apptest
+  cloud:
+    config:
+      enabled: true
+      uri: http://localhost:8000/scc      label: main
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
