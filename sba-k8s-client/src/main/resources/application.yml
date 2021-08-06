@@ -10,6 +10,9 @@ management:
     health:
       show-details: always
 spring:
+  application:    name: apptest
+  profiles:    active:    - dev,test
+  config:    import:    - optional:configserver:http://admin-service:8080
   jmx:
     enabled: true
   boot:
