@@ -15,7 +15,7 @@ spring:
         status-interval: 3s
         status-lifetime: 3s
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://mysql/master-db
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://master-db:3306/SBA
     username: root
-    password: root         
+    password: root
