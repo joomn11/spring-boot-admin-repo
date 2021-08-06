@@ -16,6 +16,6 @@ spring:
         status-lifetime: 3s
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.15.109:3306/sba?useUnicode=true&charaterEncoding=utf-8&serverTimezone=UTC
+    url: jdbc:mysql://mysql/master-db
     username: root
     password: root         
