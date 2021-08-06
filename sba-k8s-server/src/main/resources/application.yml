@@ -1,5 +1,10 @@
 spring:
   cloud:
+    config:
+      server:
+        git:
+          default-label: main
+          uri: https://github.com/joomn11/spring-boot-admin-repo.git
     kubernetes:
       discovery:
         service-labels:
@@ -9,3 +14,8 @@ spring:
       monitor:
         status-interval: 3s
         status-lifetime: 3s
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.15.109:3306/sba?useUnicode=true&charaterEncoding=utf-8&serverTimezone=UTC
+    username: root
+    password: root         
