@@ -3,9 +3,12 @@ spring:
     config:
       server:
         prefix: /scc
-        git:
-          default-label: main
-          uri: https://github.com/joomn11/spring-boot-admin-repo.git
+        jdbc:
+          enabled: true
+          sql: SELECT P_KEY, VALUE FROM  PROPERTIES  where APPLICATION=? and PROFILE=? and LABEL=?
+#        git:
+#          default-label: main
+#          uri: https://github.com/joomn11/spring-boot-admin-repo.git
     kubernetes:
       discovery:
         service-labels:
