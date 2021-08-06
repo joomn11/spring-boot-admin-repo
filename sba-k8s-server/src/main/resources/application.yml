@@ -2,6 +2,7 @@ spring:
   cloud:
     config:
       server:
+        prefix: /scc
         git:
           default-label: main
           uri: https://github.com/joomn11/spring-boot-admin-repo.git
@@ -11,6 +12,7 @@ spring:
           type: spring-boot
   boot:
     admin:
+      context-path: /sba
       monitor:
         status-interval: 3s
         status-lifetime: 3s
