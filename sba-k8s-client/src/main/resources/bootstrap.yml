@@ -1,0 +1,7 @@
+spring:
+  cloud:
+    config:
+      uri: http://admin-service:8080/scc
+      label: master
+  application:
+    name: apptest

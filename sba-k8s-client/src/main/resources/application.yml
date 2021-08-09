@@ -10,9 +10,14 @@ management:
     health:
       show-details: always
 spring:
-  application:    name: apptest
-  profiles:    active:    - dev,test
-  config:    import:    - optional:configserver:http://admin-service:8080/scc
+  application:
+    name: apptest
+  profiles:
+    active:
+    - dev,test
+  config:
+    import:
+    - optional:configserver:http://admin-service:8080/scc
   jmx:
     enabled: true
   boot:
