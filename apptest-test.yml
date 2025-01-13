@@ -2,3 +2,13 @@ test:
   user:
     age: 67a
   comm: 3ttt
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: route1
+          uri: http://example.org
+          predicates:
+            - Path=/example/**
+          filters:
+            - AddRequestHeader=X-Example, Value  
