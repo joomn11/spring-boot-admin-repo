@@ -6,9 +6,9 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: route1
-          uri: http://example.org
+        - id: route11
+          uri: http://example1.org
           predicates:
-            - Path=/example/**
+            - Path=/example1/**
           filters:
             - AddRequestHeader=X-Example, Value  
